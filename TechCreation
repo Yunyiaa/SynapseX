@@ -1,0 +1,138 @@
+-- Gui to Lua
+-- Version: 3.1
+
+-- Instances:
+
+local PrisonBreakerv15 = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local title = Instance.new("TextLabel")
+local guns = Instance.new("TextButton")
+local FastRespawn = Instance.new("TextButton")
+local TeleportPrison = Instance.new("TextButton")
+local TeleportYard = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
+
+--Properties:
+
+--Properties:
+PrisonBreakerv15.Name = "PrisonBreaker v1.5"
+PrisonBreakerv15.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = PrisonBreakerv15
+main.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+main.Position = UDim2.new(0.0684306547, 0, 0.529296875, 0)
+main.Size = UDim2.new(0, 158, 0, 186)
+main.Active = true
+main.Draggable = true
+
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+title.BorderColor3 = Color3.fromRGB(0, 255, 0)
+title.Position = UDim2.new(0.0616938733, 0, 0.0384615399, 0)
+title.Size = UDim2.new(0, 144, 0, 25)
+title.Font = Enum.Font.GothamBold
+title.Text = "Prison"
+title.TextColor3 = Color3.fromRGB(0, 0, 0)
+title.TextSize = 14
+
+guns.Name = "guns"
+guns.Parent = main
+guns.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+guns.BorderColor3 = Color3.fromRGB(0, 0, 0)
+guns.Position = UDim2.new(0.0590976588, 0, 0.212775871, 0)
+guns.Size = UDim2.new(0, 144, 0, 37)
+guns.Font = Enum.Font.GothamBlack
+guns.Text = "Guns"
+guns.TextColor3 = Color3.fromRGB(0, 0, 0)
+guns.TextSize = 14
+guns.MouseButton1Down:connect(function()
+for i,v in pairs(Workspace.Prison_ITEMS.giver:GetChildren()) do
+ 
+lol = Workspace.Remote.ItemHandler:InvokeServer(v.ITEMPICKUP)
+print(lol)
+end
+end)
+
+FastRespawn.Name = "Fast Respawn"
+FastRespawn.Parent = main
+FastRespawn.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+FastRespawn.BorderColor3 = Color3.fromRGB(0, 0, 0)
+FastRespawn.Position = UDim2.new(0.053036958, 0, 0.482111663, 0)
+FastRespawn.Size = UDim2.new(0, 144, 0, 37)
+FastRespawn.Font = Enum.Font.GothamBlack
+FastRespawn.Text = "Respawn"
+FastRespawn.TextColor3 = Color3.fromRGB(0, 0, 0)
+FastRespawn.TextSize = 14
+FastRespawn.MouseButton1Down:connect(function()
+local A_1 = "\66\114\111\121\111\117\98\97\100\100"
+local Event = game:GetService("Workspace").Remote.loadchar
+Event:InvokeServer(A_1)
+end)
+
+TeleportPrison.Name = "TeleportPrison"
+TeleportPrison.Parent = main
+TeleportPrison.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+TeleportPrison.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TeleportPrison.Position = UDim2.new(0.0606061071, 0, 0.752156377, 0)
+TeleportPrison.Size = UDim2.new(0, 67, 0, 40)
+TeleportPrison.Font = Enum.Font.GothamBlack
+TeleportPrison.Text = "Prision"
+TeleportPrison.TextColor3 = Color3.fromRGB(0, 0, 0)
+TeleportPrison.TextSize = 14
+TeleportPrison.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(918.77,100,2379.07)
+end)
+
+TeleportYard.Name = "TeleportYard"
+TeleportYard.Parent = main
+TeleportYard.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+TeleportYard.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TeleportYard.Position = UDim2.new(0.521212101, 0, 0.752156377, 0)
+TeleportYard.Size = UDim2.new(0, 67, 0, 40)
+TeleportYard.Font = Enum.Font.GothamBlack
+TeleportYard.Text = "Yard"
+TeleportYard.TextColor3 = Color3.fromRGB(0, 0, 0)
+TeleportYard.TextSize = 14
+TeleportYard.MouseButton1Down:connect(function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(779.87,98,2458.93)
+end)
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.fromRGB(170, 85, 255)
+close.BorderColor3 = Color3.fromRGB(0, 255, 0)
+close.Position = UDim2.new(0.826658964, 0, -0.00150093809, 0)
+close.Size = UDim2.new(0, 27, 0, 20)
+close.Font = Enum.Font.GothamBlack
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(0, 0, 0)
+close.TextSize = 14
+close.MouseButton1Down:connect(function()
+main.Visible = false
+openmain.Visible = true
+end)
+
+openmain.Name = "openmain"
+openmain.Parent = PrisonBreakerv15
+openmain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+openmain.Position = UDim2.new(0.0109489048, 0, 0.4453125, 0)
+openmain.Size = UDim2.new(0, 63, 0, 20)
+openmain.Visible = false
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.fromRGB(170, 170, 0)
+open.BorderColor3 = Color3.fromRGB(0, 85, 255)
+open.Size = UDim2.new(0, 63, 0, 20)
+open.Font = Enum.Font.SourceSans
+open.Text = "OPEN"
+open.TextColor3 = Color3.fromRGB(0, 0, 0)
+open.TextSize = 14
+open.MouseButton1Down:connect(function()
+openmain.Visible = false
+main.Visible = true
+end)
